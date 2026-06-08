@@ -1,0 +1,86 @@
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA — 全部排除，只白名单共享配置 ###
+.idea/
+.idea/claudeCodeTabState.xml
+!.idea/codeStyles/
+!.idea/codeStyles/*
+!.idea/runConfigurations/
+!.idea/runConfigurations/*
+!.idea/inspectionProfiles/
+!.idea/inspectionProfiles/*
+!.idea/encodings.xml
+!.idea/vcs.xml
+!.idea/.gitignore
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### OS generated files ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+### Editor backup files ###
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+
+### Logs ###
+logs/
+*.log
+*.log.*
+
+### Environment & credentials ###
+.env
+.env.*
+*.local
+application-local.*
+bootstrap-local.*
+
+### Credentials & secrets ###
+*secret*
+*credential*
+*api-key*
+*apikey*
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+*.truststore
+
+### Config server temp ###
+nacos/
+apollo/
