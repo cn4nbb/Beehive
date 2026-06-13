@@ -25,7 +25,7 @@ public class BeehiveBaseConfiguration {
         return new SpringPropertiesLoader();
     }
 
-    // @Bean
+    @Bean
     @DependsOn("applicationContextHolder")
     public BeehiveBeanPostProcessor beehiveBeanPostProcessor(BootstrapConfigProperties properties) {
         return new BeehiveBeanPostProcessor(properties);

@@ -20,7 +20,7 @@ public class MarkerConfiguration {
         return new Marker();
     }
 
-    class Marker {
+    public class Marker {
 
     }
 }
