@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import static edu.cnan.beehive.core.constant.Constants.CHANGE_DELIMITER;
@@ -87,14 +88,14 @@ public class DynamicThreadPoolRefreshListener implements ApplicationListener<Thr
         }
 
         BeehiveExecutorProperties originalProperties = holder.getExecutorProperties();
-        BeehiveExecutor executor = holder.getExecutor();
+        ThreadPoolExecutor executor = holder.getExecutor();
 
         return hasDifference(remoteProperties, originalProperties, executor);
     }
 
     private boolean hasDifference(BeehiveExecutorProperties remoteProperties,
                                   BeehiveExecutorProperties originalProperties,
-                                  BeehiveExecutor executor) {
+                                  ThreadPoolExecutor executor) {
         return isChanged(remoteProperties.getCorePoolSize(), originalProperties.getCorePoolSize()) ||
                 isChanged(remoteProperties.getMaximumPoolSize(), originalProperties.getMaximumPoolSize()) ||
                 isChanged(remoteProperties.getKeepAliveTime(), originalProperties.getKeepAliveTime()) ||
@@ -109,7 +110,7 @@ public class DynamicThreadPoolRefreshListener implements ApplicationListener<Thr
 
     private boolean isQueueCapacityChanged(BeehiveExecutorProperties remoteProperties,
                                            BeehiveExecutorProperties originalProperties,
-                                           BeehiveExecutor executor) {
+                                           ThreadPoolExecutor executor) {
         Integer remoteCapacity = remoteProperties.getQueueCapacity();
         Integer originalCapacity = originalProperties.getQueueCapacity();
         BlockingQueue<Runnable> queue = executor.getQueue();
@@ -123,7 +124,7 @@ public class DynamicThreadPoolRefreshListener implements ApplicationListener<Thr
         String threadPoolId = remoteProperties.getThreadPoolId();
         BeehiveExecutorHolder holder = BeehiveExecutorRegistry.getHolder(threadPoolId);
         BeehiveExecutorProperties originalProperties = holder.getExecutorProperties();
-        BeehiveExecutor executor = holder.getExecutor();
+        ThreadPoolExecutor executor = holder.getExecutor();
 
         Integer remoteCoreSize = remoteProperties.getCorePoolSize();
         Integer remoteMaximumSize = remoteProperties.getMaximumPoolSize();

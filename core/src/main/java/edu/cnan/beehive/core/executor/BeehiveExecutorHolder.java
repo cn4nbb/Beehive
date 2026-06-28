@@ -3,8 +3,10 @@ package edu.cnan.beehive.core.executor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
- * An aggregate that binds a {@link BeehiveExecutor} to its
+ * An aggregate that binds a {@link ThreadPoolExecutor} to its
  * identifier and configuration properties.
  *
  * @author cnan
@@ -20,7 +22,7 @@ public class BeehiveExecutorHolder {
     /**
      * The executor instance.
      */
-    private BeehiveExecutor executor;
+    private ThreadPoolExecutor executor;
 
     /**
      * Configuration properties for the {@code executor}.

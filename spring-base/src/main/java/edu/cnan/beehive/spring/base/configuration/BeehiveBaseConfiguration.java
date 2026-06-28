@@ -1,6 +1,7 @@
 package edu.cnan.beehive.spring.base.configuration;
 
 import edu.cnan.beehive.core.config.BootstrapConfigProperties;
+import edu.cnan.beehive.core.notification.service.NotifyDispatcher;
 import edu.cnan.beehive.spring.base.support.ApplicationContextHolder;
 import edu.cnan.beehive.spring.base.support.BeehiveBeanPostProcessor;
 import edu.cnan.beehive.spring.base.support.SpringPropertiesLoader;
@@ -31,11 +32,13 @@ public class BeehiveBaseConfiguration {
         return new BeehiveBeanPostProcessor(properties);
     }
 
+    @Bean
+    public NotifyDispatcher notifierDispatcher() {
+        return new NotifyDispatcher();
+    }
+
     // TODO: 以下 Bean 依赖 core/alarm、core/monitor、core/notification 模块，
     // 待这些模块完成后取消注释。
-    //
-    // @Bean
-    // public NotifierDispatcher notifierDispatcher() { ... }
     //
     // @Bean(initMethod = "start", destroyMethod = "stop")
     // public ThreadPoolAlarmChecker threadPoolAlarmChecker(...) { ... }
